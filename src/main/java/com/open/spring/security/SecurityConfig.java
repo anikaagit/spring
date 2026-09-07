@@ -96,6 +96,8 @@ public class SecurityConfig {
                         // Public grades submission - no authentication required
                         .requestMatchers(HttpMethod.POST, "/api/grades").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/grades/").permitAll()
+                                                // TimeCapsule API - public for AP CSA CRUD assignment
+                        .requestMatchers("/api/data/**").permitAll()
                         // updated so that it takes auth to actually hit endpoint
                         .requestMatchers("/api/scraper/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN", "ROLE_TEACHER", "ROLE_STUDENT")
                         // ← GIST CREATION ENDPOINTS - PUBLIC (NO AUTH)
